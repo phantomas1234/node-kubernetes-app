@@ -15,5 +15,16 @@ spec:
      containers:
      - name: niko-app
        image: gcr.io/dd-decaf-cfbf6/nikos-awesome-nodejs-app
+       env:
+          - name: SECRET_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: username
+          - name: SECRET_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: password
        ports:
        - containerPort: 8000

@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: niko-app
@@ -17,3 +17,5 @@ spec:
        image: gcr.io/dd-decaf-cfbf6/nikos-awesome-nodejs-app
        ports:
        - containerPort: 8000
+     imagePullSecrets:
+     - name: niko-regcred
